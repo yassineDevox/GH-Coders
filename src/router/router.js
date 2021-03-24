@@ -3,14 +3,14 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import DashboardPage from "../pages/dashboard-page";
 import Error404Page from "../pages/error404-page";
 import LmsPage from "../pages/lms-page";
-import ManageClientPage from "../pages/clients info/ManageClientPage";
+
 import ProductsPage from "../pages/products";
 import RegisterPage from "../pages/register/register-page";
 import AdminPlace from "../pages/sharedPage";
 import { AuthProvider } from "../shared/auth/auth-context";
 import LoginPage from "./../pages/login/login-page";
-import ShoppingCartPage from "./../pages/shopping"
-import OrderPage from "./../pages/orderpage"
+
+import clientInfoPage from "../pages/clientInfoPage"
 import SettingPage from "./../pages/setting-page"
 import CategoriesPage from "./../pages/categories"
 import ProductPage from "./../pages/products"
@@ -22,8 +22,8 @@ export default function AppRouter() {
       <AuthProvider>
         <Switch>
         <Route path="/setting" component={SettingPage} />
-        <Route path="/order" component={OrderPage} />
-        <Route path="/cart" component={ShoppingCartPage} />
+        <Route path="/clientInfo" component={clientInfoPage} />
+        
         <Route path="/categorie" component={CategoriesPage} />
         <Route path="/product" component={ProductPage} />
           <Route exact path="/" component={LmsPage} />

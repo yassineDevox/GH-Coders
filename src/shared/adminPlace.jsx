@@ -110,7 +110,7 @@ export default function AdminPage(props) {
         </div>
         <div className="sidebar__link">
           <i className="fas fa-users" />
-          <Link to="/order"> User information</Link>
+          <Link to="/clientInfo"> User information</Link>
         </div>
         <div className="sidebar__link">
           <i className="fa fa-wrench" />
