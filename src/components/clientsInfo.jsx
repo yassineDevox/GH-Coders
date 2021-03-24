@@ -3,7 +3,7 @@ import React from "react";
 export default function ClientsInfo(props) {
   return (
     <div>
-      <table className="table ">
+      <table className="table table-bordred table-striped ">
         <thead>
           <tr>
             <th  scope="col ">fullname</th>
@@ -18,7 +18,7 @@ export default function ClientsInfo(props) {
            
                 return(
                     <tr>
-                    <th scope="col">{list.fullname}</th>
+                    <td >{list.fullname}</td>
                     <td>{list.phoneNumber}</td>
                     <td>{list.email}</td>
                     <td>
