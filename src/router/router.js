@@ -8,6 +8,12 @@ import RegisterPage from "../pages/register/register-page";
 import AdminPlace from "../pages/sharedPage";
 import { AuthProvider } from "../shared/auth/auth-context";
 import LoginPage from "./../pages/login/login-page";
+import HomePage from "./../pages/home"
+import CategoriesPage from "./../pages/categories"
+import ProductPage from "./../pages/products"
+import ShoppingCartPage from "./../pages/shopping"
+import OrderPage from "./../pages/orderpage"
+import SettingPage from "./../pages/setting-page"
 
 
 export default function AppRouter() {
@@ -15,6 +21,12 @@ export default function AppRouter() {
     <Router>
       <AuthProvider>
         <Switch>
+        <Route path="/setting" component={SettingPage} />
+        <Route path="/order" component={OrderPage} />
+        <Route path="/cart" component={ShoppingCartPage} />
+          <Route path="/product" component={ProductPage} />
+          <Route path="/categorie" component={CategoriesPage} />
+          <Route path="/home" component={HomePage}/>
           <Route exact path="/" component={LmsPage} />
           <Route path="/register" component={RegisterPage} />
           <Route path="/admin" component={LoginPage} />
