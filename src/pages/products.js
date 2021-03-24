@@ -1,14 +1,15 @@
+
+  
 import React, { Component } from 'react'
-import AuthContext from '../shared/auth/auth-context'
-import Products from '../components/products'
-export default class ProductsPage extends Component {
+import ThemeAdmin from '../shared/adminPlace'
+
+
+export default class ProductPage extends Component {
     render() {
         return (
-            
-             <Products/>
-           
+          <ThemeAdmin>
+  <h1>page product</h1>
+   </ThemeAdmin>
         )
     }
 }
-
-ProductsPage.contextType=AuthContext;
