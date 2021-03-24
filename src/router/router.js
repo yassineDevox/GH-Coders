@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import DashboardPage from "../pages/dashboard-page";
 import Error404Page from "../pages/error404-page";
 import LmsPage from "../pages/lms-page";
+import ManageClient from "../pages/ManageClient";
 import ProductsPage from "../pages/products";
 import RegisterPage from "../pages/register/register-page";
 import AdminPlace from "../pages/sharedPage";
@@ -21,6 +22,7 @@ export default function AppRouter() {
           <Route path="/dash" component={DashboardPage} />          
           <Route path="/products" component={ProductsPage} />
           <Route path="/adminDash" component={AdminPlace} />
+          <Route path="/myClients" component={ManageClient} />
           <Route path="*" component={Error404Page} />
         </Switch>
       </AuthProvider>
