@@ -1,35 +1,37 @@
 import React, { Component } from 'react'
-import CategorieModal from '../models/categorie-model'
 import Categorie from '../components/categorie'
+import CategorieModal from './../models/categorie-model'
+import axios from '../utils/axios'
 
 export default class CategoriePage extends Component {
     constructor(){
         super()
         this.state = {
-          id:"",
           name:"",
           description:"",
           updateCat_id: -1,
           list_categorie_data:[],
-          backupList:[],
+          action: "ADD",
         }
       }
     render() {
         return (
-            <Categorie 
-            handleChange={this.handleChangeInput}
-            handleAddSubmit={this.handleAdd}
-            handleEditCategorie={this.handleEditCat}
-            handleEditSubmit={this.submitEditCat}
-            handleDeleteSubmit={this.handleDelete}
-            dataList={this.state.list_categorie_data}
- 
-            name={this.state.name}
-            description={this.state.description}
-            />
+           <Categorie 
+           handleChange={this.handleChangeInput}
+           handleAddSubmit={this.handleAdd}
+           handleEditCategorie={this.handleEditCat}
+           handleEditSubmit={this.submitEditCat}
+           handleDeleteSubmit={this.handleDelete}
+           dataList={this.state.list_categorie_data}
+
+           name={this.state.name}
+           description={this.state.description}
+           action={this.state.action}
+
+           />
+            
         )
     }
-
     handleChangeInput = (event) => {
         let value = event.target.value;
         let input = event.target.name;
@@ -109,14 +111,22 @@ componentDidMount() {
   })
 }
 handleEditCat = (editCat)=>{
+    //changer l'action de state
+    this.setState({ action: "EDIT" })
+    
     this.setState({
         name: editCat.name,
         description: editCat.description,
         updateCat_id: editCat.id,
       })
+     
 }
 
 submitEditCat =(event)=>{
+    this.setState({
+        name:'' ,
+        description: '',
+    })
 
     event.preventDefault();
     //partie data a envoyer a firebase
@@ -124,7 +134,7 @@ submitEditCat =(event)=>{
       name:this.state.name,
       description:this.state.description,
     }
-    //appe a la fonction put de axios
+    //appel a la fonction put de axios
     axios.put("categorie/"+this.state.updateCat_id+".json",categorie_data).then((response)=>{
       //changer les infos du categorie
       let newList = this.state.list_categorie_data;
@@ -134,18 +144,14 @@ submitEditCat =(event)=>{
           c.name=response.data.name;
           c.description=response.data.description;
         }
+
       });
+      
       //modifier la liste du state
       this.setState({list_categorie_data:newList})
-      //vider le formulaire 
-      event.target.reset();
-      //vider les variables state
-      this.setState({
-        name:"",
-        description:"",
-        updateCat_id: -1,
-      })
+      
     })
+    
 }
 
 handleDelete = (idCat) => {
@@ -153,10 +159,10 @@ handleDelete = (idCat) => {
     let choice = window.confirm('Are you sure ?');
     if (choice == true) {
       //supp un Catdepuis firebase
-      axios.delete("Categorie/" + idCat + ".json").then(() => {
+      axios.delete("categorie/" + idCat + ".json").then(() => {
         //supp dans html
         let newList = this.state.list_categorie_data.filter(
-          (s) => s.id != idCat
+          (c) => c.id != idCat
         )
         this.setState({ list_categorie_data: newList })
       })
@@ -164,3 +170,5 @@ handleDelete = (idCat) => {
     }
   }
 }
+
+

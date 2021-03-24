@@ -8,6 +8,7 @@ import RegisterPage from "../pages/register/register-page";
 import AdminPlace from "../pages/sharedPage";
 import { AuthProvider } from "../shared/auth/auth-context";
 import LoginPage from "./../pages/login/login-page";
+import CategoriePage from "./../pages/manage-categorie"
 
 
 export default function AppRouter() {
@@ -20,6 +21,7 @@ export default function AppRouter() {
           <Route path="/admin" component={LoginPage} />
           <Route path="/dash" component={DashboardPage} />          
           <Route path="/products" component={ProductsPage} />
+          <Route path="/categorie" component={CategoriePage} />
           <Route path="/adminDash" component={AdminPlace} />
           <Route path="*" component={Error404Page} />
         </Switch>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import AdminPage from '../shared/adminPlace'
+import CategoriePage from './manage-categorie'
 export default class AdminPlace extends Component {
 
     constructor(){
@@ -8,9 +9,9 @@ export default class AdminPlace extends Component {
     }
     render() {
         return (
-          <AdminPage
-          
-          />
+          <AdminPage>
+              <CategoriePage/>
+          </AdminPage>
         )
     }
 
