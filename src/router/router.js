@@ -23,7 +23,6 @@ export default function AppRouter() {
         <Switch>
         <Route path="/setting" component={SettingPage} />
         <Route path="/clientInfo" component={clientInfoPage} />
-        
         <Route path="/categorie" component={CategoriesPage} />
         <Route path="/product" component={ProductPage} />
           <Route exact path="/" component={LmsPage} />
@@ -32,7 +31,6 @@ export default function AppRouter() {
           <Route path="/dash" component={DashboardPage} />          
           <Route path="/products" component={ProductsPage} />
           <Route path="/adminDash" component={AdminPlace} />
-         
           <Route path="*" component={Error404Page} />
         </Switch>
       </AuthProvider>

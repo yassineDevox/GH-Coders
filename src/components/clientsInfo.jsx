@@ -18,15 +18,16 @@ export default function ClientsInfo(props) {
            
                 return(
                     <tr>
-                    <td >{list.fullname}</td>
+                    <td>{list.fullname}</td>
                     <td>{list.phoneNumber}</td>
                     <td>{list.email}</td>
                     <td>
                       <button 
-                      onClick={()=>props.deleteBtn(list)}
+                      key={list.id}
+                      onClick={()=>props.deleteBtn(list.id)}
                       type="button" 
                       className="btn btn-danger">
-                        remove <i class="fas fa-trash"></i>
+                        <i class="fas fa-trash"></i>
                       </button>
                     </td>
                   </tr>
