@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Categorie from '../components/categorie'
-import CategorieModal from './../models/categorie-model'
+import CategorieModal from '../models/categorie-model'
 import axios from '../utils/axios'
+import AdminPage from '../theme/admin'
 
 export default class CategoriePage extends Component {
     constructor(){
@@ -16,7 +17,8 @@ export default class CategoriePage extends Component {
       }
     render() {
         return (
-           <Categorie 
+           <AdminPage>
+             <Categorie 
            handleChange={this.handleChangeInput}
            handleAddSubmit={this.handleAdd}
            handleEditCategorie={this.handleEditCat}
@@ -29,6 +31,7 @@ export default class CategoriePage extends Component {
            action={this.state.action}
 
            />
+           </AdminPage>
             
         )
     }
@@ -74,7 +77,7 @@ export default class CategoriePage extends Component {
                 //chercher la categorie qui a l'id == 0 sur la liste
                 let newCategorie = this.state.list_categorie_data;
                 newCategorie.forEach(c => {
-                  if (c.id == 0) {
+                  if (c.id === 0) {
                     c.id = id_new_categorie;
                   }
                   
@@ -170,5 +173,3 @@ handleDelete = (idCat) => {
     }
   }
 }
-
-

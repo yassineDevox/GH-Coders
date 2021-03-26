@@ -40,7 +40,7 @@ export default class LoginPage extends Component {
       //----utiliser register du auth-context
       this.context.login(this.state.email,this.state.password).then((response)=>{
         console.log(response)
-   this.props.history.push("./shared")
+   this.props.history.push("./adminDash")
       }).catch((error)=>{
         alert(error.message)
       })

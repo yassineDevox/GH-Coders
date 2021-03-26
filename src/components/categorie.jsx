@@ -3,7 +3,7 @@ import React from 'react'
 export default function Categorie(props) {
     return (
         <div className='w-75 m-auto'>
-            <form onSubmit={props.action=="ADD" ? props.handleAddSubmit : props.handleEditSubmit}>
+            <form onSubmit={props.action==="ADD" ? props.handleAddSubmit : props.handleEditSubmit}>
                 <div className="mb-3 ">
                     <label htmlFor="exampleFormControlInput1" className="form-label">Name</label>
                     <input onChange={props.handleChange} type="text" value={props.name} name='name' className="form-control" placeholder="name" />
@@ -15,7 +15,7 @@ export default function Categorie(props) {
                 <button type="submit" className="btn btn-primary d-flex justify-content-center">ADD</button>
             </form>
             <div className="text-center mt-5">
-                <div className="container">
+                <div>
                     <div className="row">
                         <div className="col-md-12">
                             <h4>Manage Categories</h4>

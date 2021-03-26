@@ -1,3 +1,4 @@
+  
 export default class CategorieModal{
     constructor(id,name,description){
         this.id= id;
