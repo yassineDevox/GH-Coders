@@ -3,22 +3,23 @@ import "./auth/shared.css";
 import AuthContext from "./auth/auth-context";
 import {Link} from 'react-router-dom'
 
-export default function AdminPage() {
+export default function AdminPage(props) {
     const {logout} = useContext(AuthContext)
     return (
-       
+                    
+<div id="body">
+  
+  <div className="container">
+    <nav className="navbar">
+      <div className="nav_icon" onclick="toggleSidebar()">
+        <i className="fa fa-bars" aria-hidden="true" />
+      </div>
+      <div className="d-flex">
+      
 
-      <div id="body ">
-        <div className="container">
-          <nav className="navbar">
-            <div className="nav_icon" onclick="toggleSidebar()">
-              <i className="fa fa-bars" aria-hidden="true" />
-            </div>
 
-            <div className=" d-flex ">
-
-              {/* input */}
-              <div className="input-group mb-3 p-2">
+  {/* input */}
+  <div className="input-group mb-3 p-2">
                 <button
                   className="btn btn-dark"
                   type="button"
@@ -26,7 +27,7 @@ export default function AdminPage() {
                   
                 >
                   
-                  <i class="fas fa-search"></i>
+                  <i className="fas fa-search"></i>
                 </button>
                 <input
                 
@@ -71,55 +72,54 @@ export default function AdminPage() {
 
 
 
-          </nav>
-          <main>{/* {props.children} */}</main>
-          <div id="sidebar">
-            <div className="sidebar__title">
-              <div className="sidebar__img">
-                <img src="" alt="logo" />
-                <h1>Codersbite</h1>
-              </div>
-              <i
-                onclick="closeSidebar()"
-                className="fa fa-times"
-                id="sidebarIcon"
-                aria-hidden="true"
-              />
-            </div>
-            <div className="sidebar__menu">
-              <div className="sidebar__link active_menu_link">
-                <i className="fa fa-home" />
-                {/* <a href="#">Dashboard</a> */}
-              </div>
-              <h2>MNG</h2>
-              <div className="sidebar__link">
-                <i className="fas fa-home" />
-                <a to="/home"> Home</a>
-              </div>
-              <div className="sidebar__link">
-                <i className="fas fa-tasks" />
-                <a to="/categorie"> Manage Categories</a>
-              </div>
-              <div className="sidebar__link">
-                <i className="fas fa-cubes" />
-                <a to="/product"> Manage Product</a>
-              </div>
-              <div className="sidebar__link">
-                <i className="fas fa-shopping-cart" />
-                <a to="/cart"> User's Shopping Cart</a>
-              </div>
-              <div className="sidebar__link">
-                <i className="fas fa-check" />
-                <a to="/order"> Confirm Order</a>
-              </div>
-              <div className="sidebar__link">
-                <i className="fa fa-wrench" />
-                <a to="/setting">Settings</a>
-              </div>
-            </div>
-          </div>
+
+
+
+
+     
+
+    </nav>
+    <main>
+{props.children}
+    </main>
+    <div id="sidebar">
+      <div className="sidebar__title">
+        <div className="sidebar__img">
+          <img src="" alt="logo" />
+          <h1>Codersbite</h1>
         </div>
+        <i onclick="closeSidebar()" className="fa fa-times" id="sidebarIcon" aria-hidden="true" />
       </div>
-    );
-  
+      <div className="sidebar__menu">
+        <div className="sidebar__link active_menu_link">
+          <i className="fa fa-home" />
+          <a href="#">Dashboard</a>
+        </div>
+        <h2>MNG</h2>
+        <div className="sidebar__link">
+          <i className="fas fa-home" />
+          <Link to="/home"> Home</Link>
+        </div>
+        <div className="sidebar__link">
+          <i className="fas fa-tasks" />
+          <Link to="/categorie"> Manage Categories</Link>
+        </div>
+        <div className="sidebar__link">
+          <i className="fas fa-cubes" />
+          <Link to="/product"> Manage Product</Link>
+        </div>
+        <div className="sidebar__link">
+          <i className="fas fa-users" />
+          <Link to="/clientInfo"> User information</Link>
+        </div>
+        <div className="sidebar__link">
+          <i className="fa fa-wrench" />
+          <Link to="/setting">Settings</Link>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+    )
 }
